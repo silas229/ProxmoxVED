@@ -1,0 +1,49 @@
+{
+  "name": "Your Spotify",
+  "slug": "your-spotify",
+  "categories": [
+    13
+  ],
+  "date_created": "2026-07-31",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 3000,
+  "documentation": "https://github.com/Yooooomi/your_spotify",
+  "website": "https://github.com/Yooooomi/your_spotify",
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/your-spotify.webp",
+  "config_path": "/opt/your_spotify/apps/server/.env",
+  "description": "Your Spotify is a self-hosted web app that tracks and displays statistics about your Spotify listening history, similar to Last.fm.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/your-spotify.sh",
+      "config_path": "/opt/your_spotify/apps/server/.env",
+      "resources": {
+        "cpu": 2,
+        "ram": 2048,
+        "hdd": 8,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "During installation you must create a Spotify application at https://developer.spotify.com/dashboard and provide its Client ID and Client Secret when prompted.",
+      "type": "info"
+    },
+    {
+      "text": "The Spotify app's Redirect URI must be set to http://<CONTAINER-IP>:8080/oauth/spotify/callback.",
+      "type": "warning"
+    },
+    {
+      "text": "The API endpoint is baked into the client build at install time. If the container's IP changes, update API_ENDPOINT and CLIENT_ENDPOINT in /opt/your_spotify/apps/server/.env, update the Redirect URI in the Spotify dashboard, then run the update function (pct update, or re-run the install script's update_script) to rebuild the client and restart both services.",
+      "type": "warning"
+    }
+  ]
+}
