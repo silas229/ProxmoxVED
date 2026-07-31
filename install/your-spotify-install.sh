@@ -21,7 +21,7 @@ fetch_and_deploy_gh_release "your_spotify" "Yooooomi/your_spotify" "tarball"
 
 msg_info "Installing pnpm Dependencies"
 cd /opt/your_spotify
-$STD pnpm install --frozen-lockfile
+$STD pnpm install --frozen-lockfile --dangerously-allow-all-builds
 msg_ok "Installed pnpm Dependencies"
 
 API_ENDPOINT="http://${LOCAL_IP}:8080"

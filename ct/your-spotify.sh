@@ -44,7 +44,7 @@ function update_script() {
 
     msg_info "Installing pnpm Dependencies"
     cd /opt/your_spotify
-    $STD pnpm install --frozen-lockfile
+    $STD pnpm install --frozen-lockfile --dangerously-allow-all-builds
     msg_ok "Installed pnpm Dependencies"
 
     msg_info "Building Backend"
