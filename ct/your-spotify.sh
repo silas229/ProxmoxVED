@@ -5,7 +5,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/../misc/build.func" 2>/dev/null || source
 # License: MIT | https://github.com/community-scripts/ProxmoxVED/raw/main/LICENSE
 # Source: https://github.com/Yooooomi/your_spotify
 
-APP="Your Spotify"
+APP="Your-Spotify"
 var_tags="${var_tags:-media;music}"
 var_cpu="${var_cpu:-2}"
 var_ram="${var_ram:-2048}"
