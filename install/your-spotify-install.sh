@@ -24,11 +24,17 @@ cd /opt/your_spotify
 $STD pnpm install --frozen-lockfile --dangerously-allow-all-builds
 msg_ok "Installed pnpm Dependencies"
 
-API_ENDPOINT="http://${LOCAL_IP}:8080"
-CLIENT_ENDPOINT="http://${LOCAL_IP}:3000"
+echo -e "\nConfiguring endpoints:"
+echo -e "  IMPORTANT: Spotify requires HTTPS for redirect URIs (except localhost)."
+echo -e "  Use your public HTTPS URL (e.g. https://your-domain.example.com) if you"
+echo -e "  have a reverse proxy with TLS. Direct HTTP access only works for local testing.\n"
+read -r -p "API endpoint [http://${LOCAL_IP}:8080]: " INPUT_API
+read -r -p "Client endpoint [http://${LOCAL_IP}:3000]: " INPUT_CLIENT
+API_ENDPOINT="${INPUT_API:-http://${LOCAL_IP}:8080}"
+CLIENT_ENDPOINT="${INPUT_CLIENT:-http://${LOCAL_IP}:3000}"
 
 echo -e "\nTo finish setup, you need a Spotify application:"
-echo -e "1. Go to https://developer.spotify.com/dashboard and create an app"
+echo -e "1. Go to https://developer.spotify.com/dashboard and create an app with Web API permissions"
 echo -e "2. Set its Redirect URI to: ${API_ENDPOINT}/oauth/spotify/callback"
 echo -e "3. Copy the Client ID and Client Secret below\n"
 read -r -p "Spotify Client ID: " SPOTIFY_PUBLIC

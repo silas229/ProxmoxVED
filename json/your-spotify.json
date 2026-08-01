@@ -38,11 +38,11 @@
       "type": "info"
     },
     {
-      "text": "The Spotify app's Redirect URI must be set to http://<CONTAINER-IP>:8080/oauth/spotify/callback.",
+      "text": "Spotify requires HTTPS for redirect URIs (except localhost). If you plan to use this behind a reverse proxy with TLS, enter your public HTTPS API URL when prompted during install so the correct redirect URI is registered.",
       "type": "warning"
     },
     {
-      "text": "The API endpoint is baked into the client build at install time. If the container's IP changes, update API_ENDPOINT and CLIENT_ENDPOINT in /opt/your_spotify/apps/server/.env, update the Redirect URI in the Spotify dashboard, then run the update function (pct update, or re-run the install script's update_script) to rebuild the client and restart both services.",
+      "text": "The API endpoint is baked into the client build at install time. To change it later, update API_ENDPOINT and CLIENT_ENDPOINT in /opt/your_spotify/apps/server/.env, update the Redirect URI in the Spotify dashboard, then run the update function to rebuild the client and restart both services.",
       "type": "warning"
     }
   ]
