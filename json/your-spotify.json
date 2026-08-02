@@ -21,8 +21,8 @@
       "config_path": "/opt/your_spotify/apps/server/.env",
       "resources": {
         "cpu": 2,
-        "ram": 2048,
-        "hdd": 8,
+        "ram": 512,
+        "hdd": 4,
         "os": "Debian",
         "version": "13"
       }
